@@ -2,62 +2,75 @@
 
 ## Features
 
-- only doctors (GMC registered) can write but anyone can read
-- operates on the local (trust/site denoted by GMC Designated body) and national levels separately (two sets of parallel boards)
-- anonymised
-  - users are given random ids that persist
-  - users are tagged with their trust region
-- unmoderated
-  - users are allowed to post anything - totally uncensored
-  - the expectation is that the high bar of a GMC registration will prevent serious issues from arrising here
-- designed to allow physicians to come together and unite on issues/priorities
-- 2 phase system (where n is a small number e.g. 1 to 5)
-  - week 1 crowdsource issues
-  - weekend 1 vote on crowdsourced issues to select n
-  - week 2 crowdsource solutions
-  - weekend 2 vote on crowdsourced solutions to select n
-- each user gets one vote per issue (up/down)
-- users can leave comments on issues in youtube style threads
-- comments can be up voted/down voted
-- comment/issue/suggestion bodies support simple markdown formatting
-- clarify that upvotes/downvotes indicate agreement (unlike reddit where they were supposed to promote valuable contributions)
-- issues page that shows currently open issues, filter and sort options (open/closed|votes|date|etc)
-- issues can be tagged (not data validated, up to the author, suggest popular tags while typing)
-- to close an issue (50% ?) of the total upvotes need to vote as closed
-- closing an issue requires a comment explaining how it was closed, this comment? needs to reach 50% of the original votes
-- closed issues are listed on an archive page
-- notifications/poll newsletter to reduce voting friction (e.g. get a link to upvote/downvote/skip on that week's issues)
-- users can opt out of a notification that tells them when issues they voted on have changed in status (e.g. issue added, suggestion added, closed, etc)
-- bulletins that highlight successes, demographics, and make users aware of the power of the platform to drive engagement
-- Profile page (GMC status, trust region, notification preferences)
-- Notification settings (email cadence, issue-status alerts opt-in/opt-out)
-- typo tolerant search bar for issues/suggestions
-- onboarding:
-  - platform goals, explanations, CLA style "I promise not to be a dick" waiver
+### Access & Scope
 
-| Field                         | Character Limit |
-|-------------------------------|-----------------|
-| Issue/Solution Title          | 100             |
-| Issue/Solution Body           | 5 000           |
-| Comment Body                  | 2 000           |
+Only GMC-registered doctors may contribute content, while anyone may read. Discussions take place on parallel boards at both local (site/trust, as defined by GMC Designated Body) and national levels.
 
+### Anonymisation & Identity
+
+All contributors are assigned a persistent, randomly generated identifier and tagged with their NHS trust region. No personal details are exposed, preserving anonymity while still allowing regional grouping of concerns.
+
+### Posting & Content
+
+The platform is completely unmoderated. Users may post without restriction, relying on the professionalism implied by GMC registration. All submissions support simple Markdown formatting, and authors may assign their own tags (with popular suggestions shown as they type) to help categorise issues.
+
+### Discussion Structure
+
+Conversations unfold in threaded, YouTube-style comment streams beneath each issue. Every comment and suggestion may be up-voted or down-voted, where votes signify agreement or disagreement, rather than quality scores.
+
+### Phased Crowdsourcing & Voting
+
+Physicians first crowdsource issues during the opening week, then vote over the weekend to select the top concerns. In the second week they propose solutions, and again vote on the weekend to choose the leading proposals. Each user has one up/down vote per issue.
+
+### Issue/Suggestion Lifecycle
+
+The issues page displays all open issues/suggestions with filters and sorts (by status, vote count, date, etc.). To close a issue/suggestion, a user must submit a close request that includes a title and body explaining how the issue/suggestion was closed. To pass, this close request must recieve up-votes totalling at least 50 per cent of the amount of the open issue/suggestion. Closed issues/suggestions are archived for reference.
+
+### Search & Navigation
+
+A typo-tolerant search bar lets users quickly locate issues or proposals by keywords and tags.
+
+### Notifications & Outreach
+
+Weekly poll newsletters deliver direct links for up-voting, down-voting or skipping each issue, reducing friction in participation. Users may opt out of status-change alerts for issues they’ve engaged with. Periodic bulletins highlight platform successes, demographic insights and the impact of physician engagement.
+
+### User Pages & Settings
+
+Each user has a profile page showing GMC verification status, trust region and notification preferences. In settings they control email cadence, preferred email (e.g. if they wish to recieve poll emails on a gmail account rather than their nhs mail), opt-ins for issue alerts, and may toggle between light and dark modes (defaulting to the system theme).
+
+### Onboarding & Legal
+
+New users encounter a concise onboarding flow explaining platform goals and agreeing to a simple code-of-conduct “I promise not to be a dick” waiver before participation.
+
+### Character Limits
+
+Issue and solution bodies are capped at 5 000 characters, comments bodies at 2 000 characters, and all titles are capped at 100 characters to balance expressiveness with readability and performance.
 
 ## Tech Stack
 
-- next js
-- nextauth
-- typescript
-- postgres db
-- prisma
-- vitest/playwright
-- redis
-- Meilisearch
-- socket.io
-- BullMQ
-- Mailgun
-- Pino
-- gh actions
-- docker compose
-- tailwind css
-- shadcn
-- ESlint
+| Category               | Technology / Framework                       |
+|------------------------|----------------------------------------------|
+| **Language & Runtime** | TypeScript (Node.js)                         |
+| **Web Framework**      | Next.js                                      |
+| **Authentication**     | NextAuth.js                                  |
+| **Database**           | PostgreSQL                                   |
+| **ORM**                | Prisma                                       |
+| **Caching**            | Redis                                        |
+| **Search**             | Meilisearch                                  |
+| **Real-Time**          | Socket.io                                    |
+| **Background Jobs**    | BullMQ                                       |
+| **Email Delivery**     | Mailgun                                      |
+| **Logging**            | Pino                                         |
+| **Testing**            | Vitest (unit) & Playwright (E2E)             |
+| **CI/CD**              | GitHub Actions                               |
+| **Containerisation**   | Docker Compose                               |
+| **Styling**            | Tailwind CSS & shadcn                        |
+| **Linting**            | ESLint                                       |
+
+## Contributing
+
+Contributions are welcome. Feel free to fork the repo and open a pull request.
+
+## License
+
+This project is licensed under the terms found in the [LICENSE](./LICENSE) file.
